@@ -22,9 +22,11 @@ class Tasks{
         ));
     }
 
+//    public function deleteTask($id){
+//        $this->_db->remove($id);
+//    }
+
     public function deleteTask($id){
-        $this->_db->remove($id);
+        $this->_db->delete('tasks', array('id', '=', $id));
     }
-
-
 }

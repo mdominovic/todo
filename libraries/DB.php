@@ -75,12 +75,12 @@ class DB {
         return false;
     }
 
-    public function get($table, $where) {
+    public function get($table, $where = array()) {
         return $this->action('SELECT *', $table, $where);
     }
 
-    public function delete($table, $where) {
-        return $this->action('DELETE *', $table, $where);
+    public function delete($table, $where = array()) {
+        return $this->action('DELETE', $table, $where);
     }
 
     public function insert($table, $fields = array()) {
@@ -135,10 +135,5 @@ class DB {
 
     public function count() {
         return $this->_count;
-    }
-
-    public function remove($id){
-        $sql = "DELETE FROM tasks WHERE id=" . $id;
-        $this->_pdo->exec($sql);
     }
 }

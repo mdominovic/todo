@@ -6,7 +6,6 @@ $task = new Tasks();
 if(isset($_POST['submit'])) {
     $task->addTask($_POST['task']);
 }
-
 ?>
 
 <!doctype html>
@@ -29,7 +28,6 @@ if(isset($_POST['submit'])) {
         <input name="submit" type="submit" >
     </form>
 
-
     <hr>
 
     <table>
@@ -38,38 +36,35 @@ if(isset($_POST['submit'])) {
             <th>Task</th>
         </tr>
 
-
         <?php
-
         $as = $task->displayTask();
-
         foreach($as as $a):
-            ?>
+        ?>
 
-            <tr>
-                <th class="">
-                    <?php echo $a[1]; ?>
-                </th>
-                <td>
-                    <form method="post" action="">
-                        <input type="submit" name="delete" value="Done">
-                        <input type="hidden" name="id" value="<?php echo $a[0];?>">
-                        <?php
+        <tr>
+            <th class="">
+                <?php echo $a[1]; ?>
+            </th>
+            <td>
+                <form method="post" action="">
+                    <input type="submit" name="delete" value="Done">
+                    <input type="hidden" name="id" value="<?php echo $a[0];?>">
+                    <?php
 
-                            if(isset($_POST['delete'])) {
-                                $hh = ((int)$_POST['id']);
-                                $task->deleteTask($hh);
+                        if(isset($_POST['delete'])) {
+                            $hh = ((int)$_POST['id']);
+                            $task->deleteTask($hh);
 
-                                header('Location: index.php');
+                            header('Location: index.php');
 
-                            }
-                        ?>
-                    </form>
-                </td>
-                <td>
-                    <?php echo $a[2]; ?>
-                </td>
-            </tr>
+                        }
+                    ?>
+                </form>
+            </td>
+            <td>
+                <?php echo $a[2]; ?>
+            </td>
+        </tr>
 
         <?php endforeach; ?>
 
