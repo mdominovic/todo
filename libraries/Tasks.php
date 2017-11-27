@@ -2,10 +2,7 @@
 
 class Tasks{
 
-    public static $task = "";
-
-    private $_db,
-            $_data;
+    private $_db;
 
     public function __construct(){
         $this->_db = DB::getInstance();
@@ -21,10 +18,6 @@ class Tasks{
             'joined' => date('Y-m-d H:i:s')
         ));
     }
-
-//    public function deleteTask($id){
-//        $this->_db->remove($id);
-//    }
 
     public function deleteTask($id){
         $this->_db->delete('tasks', array('id', '=', $id));

@@ -28,14 +28,6 @@ class DB {
         return self::$_instance;
     }
 
-    public function displayAll() {
-        $sql = "SELECT * FROM tasks";
-        $query = $this->_pdo->prepare( $sql );
-        $query->execute();
-        $results = $query->fetchAll();
-        return $results;
-    }
-
     public function query($sql, $params = array()) {
         $this->_error = false;
         if($this->_query = $this->_pdo->prepare($sql)) {
@@ -119,6 +111,14 @@ class DB {
             return true;
         }
         return false;
+    }
+
+    public function displayAll() {
+        $sql = "SELECT * FROM tasks";
+        $query = $this->_pdo->prepare( $sql );
+        $query->execute();
+        $results = $query->fetchAll();
+        return $results;
     }
 
     public function results() {
