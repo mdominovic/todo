@@ -1,10 +1,11 @@
 body {
     background-color: silver;
     font-family: Ariel, Helvetica, sans-serif;
+    padding: 20px;
 }
 
 td {
-    width: 100px;
+    width: 200px;
     border: 1px solid;
 
 }
@@ -26,6 +27,18 @@ tr:nth-child(even) {
 
 }
 
-.done {
-    background-color: #3fff18;
+h1 {
+    font-size: 5em;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.done-btn {
+    width: 50px;
+}
+
+.t-stamp {
+    width: 180px;
 }
